@@ -42,8 +42,7 @@ main{
   margin-right: 35px;
 }
 
-/* WELCOME MESSAGE/DIALOG */
-/* Welcome message dialog */
+/* Welcome Message Dialog */
 .welcome {
   top: 15vh;
   width: 600px;
@@ -81,8 +80,7 @@ h1{
   padding: 0;
 }
 
-/* STICKY NOTE FOR FORM/DIALOG */
-/* Format add new note dialog pop up */
+/* Write a new sticky note dialog form */
 dialog{
   position: absolute;
   top: 30vh;
@@ -143,7 +141,7 @@ textarea {
   justify-content: flex-end;
 }
 
-/* Sticky note delete button - aslo for form/dialog*/
+/* Sticky note delete button - aslo for dialog form for new note*/
 .titleBar .delete,
 form button{
   padding: 5px 10px;
@@ -205,7 +203,7 @@ button[type=open],
 
 /* New Note button */
 button[type=open]{
-  padding: 6px 14px;
+  padding: 5px 14px;
   font-size: 3.5rem;
   padding-top: 0;
   position: fixed;
@@ -217,7 +215,7 @@ button[type=open]{
 .customUpload{
   font-size: 2.75rem;
   cursor: pointer;
-  padding: 7px 14px;
+  padding: 7px 11px;
   top: 100px;
   right: 15px;
   position: fixed;
@@ -335,8 +333,9 @@ input:checked + .slider:before {
     width: 226px;
   }
 
+  /* Adjust width of photos section */
   .photos{
-    width: calc(92% - 225px);
+    width: calc(92% - 228px);
   }
 
   /* Make font size of sticky notes smaller */
@@ -351,7 +350,7 @@ input:checked + .slider:before {
   .welcome{
     width: 500px;
   }
-
+/* Adjust width of photos section */
   .photos{
     width: 300px;
   }
@@ -427,13 +426,13 @@ input:checked + .slider:before {
   /* Upload image button make smaller */
   .customUpload{
     font-size: 2.25rem;
-    padding: 5px 10px;
+    padding: 5px 7px;
   }
 
     /* New note button make smaller*/
   button[type=open]{
     font-size: 2.75rem;
-    padding: 5px 10px;
+    padding: 3px 10px;
     padding-top: 0;
     top: 180px;
   }

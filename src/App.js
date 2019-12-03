@@ -23,7 +23,6 @@ class App extends Component {
 
         //for every object, we create a new object with two key values: note text and note id
         for(let key in notes){
-          console.log(notes[key])
 
           //Find out the key of each note value in firebase, to figure out how to delete each later
           const singleNote = {
@@ -118,7 +117,7 @@ class App extends Component {
     }
 //Delete written note by user
     deleteNote = (event) => {
-        console.log(event.target.id);
+
         const notesRef = firebase.database().ref().child("notes");
 
         notesRef.child(event.target.id).remove();
@@ -129,8 +128,8 @@ class App extends Component {
             <main>
               {/* Toggle switch for two themes */}
               <label className="switch" title="Change theme">
-              <span class="visuallyHidden">Click here to change the theme</span>
-                <input type="checkbox" onChange={this.toggleTheme} id="toggleTheme" tabindex="0" className="visuallyHidden"/>
+              <span className="visuallyHidden">Click here to change the theme</span>
+                <input type="checkbox" onChange={this.toggleTheme} id="toggleTheme" tabIndex="0" className="visuallyHidden"/>
                 <span className="slider"></span>
               </label>
               {/* Welcome message and instructions dialog */}
@@ -153,7 +152,7 @@ class App extends Component {
               <section className="notes wrapper" id="notes">
                 {/* Button to open dialog to create a new note */}
                 <button type="open" onClick={this.openDialog} title="New note">
-                  <span class="visuallyHidden">Click here to write a new note</span>+
+                  <span className="visuallyHidden">Click here to write a new note</span>+
                 </button>
                 {/* Dialog for form for writing and submitting a new note */}
                 <dialog id="dialog" className="newNote visuallyHidden">
@@ -171,7 +170,7 @@ class App extends Component {
                         return(
                             <li key={i}>
                               <div className="titleBar">
-                                <button id={noteValue.noteId} className="delete" onClick={this.deleteNote} title="Delete note" tabindex="0">X</button>
+                                <button id={noteValue.noteId} className="delete" onClick={this.deleteNote} title="Delete note" tabIndex="0">X</button>
                               </div>
                               <textarea rows="7" cols="16" value={noteValue.noteText} readOnly></textarea>
                             </li>
