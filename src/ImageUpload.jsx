@@ -80,10 +80,13 @@ class ImageUpload extends Component {
     render(){
         return(
             <section className="photos wrapper" id="photos">
+                {/* Default file upload button hidden */}
                 <input id="fileUpload" type="file" className="customUpload visuallyHidden" tabindex="1" onChange={this.handleChange}/>
+                {/* Custom file upload button by styling label */}
                 <label for="fileUpload" className="customUpload" title="Upload photo">
                     <span class="visuallyHidden">Click here to upload an image</span>🠉
                 </label>
+                {/* Map photosList array in state to see all photos uploaded by user */}
                 <ul className="gallery">
                     {this.state.photosList.map((item, i)=>{
                         return(
