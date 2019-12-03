@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/alissaChengQuickNotes/static/css/main.b67989e0.chunk.css",
-    "main.js": "/alissaChengQuickNotes/static/js/main.f32d71bb.chunk.js",
-    "main.js.map": "/alissaChengQuickNotes/static/js/main.f32d71bb.chunk.js.map",
+    "main.css": "/alissaChengQuickNotes/static/css/main.e9d7817a.chunk.css",
+    "main.js": "/alissaChengQuickNotes/static/js/main.f8a15d4d.chunk.js",
+    "main.js.map": "/alissaChengQuickNotes/static/js/main.f8a15d4d.chunk.js.map",
     "runtime-main.js": "/alissaChengQuickNotes/static/js/runtime-main.01972f80.js",
     "runtime-main.js.map": "/alissaChengQuickNotes/static/js/runtime-main.01972f80.js.map",
     "static/js/2.c9f9d984.chunk.js": "/alissaChengQuickNotes/static/js/2.c9f9d984.chunk.js",
     "static/js/2.c9f9d984.chunk.js.map": "/alissaChengQuickNotes/static/js/2.c9f9d984.chunk.js.map",
     "index.html": "/alissaChengQuickNotes/index.html",
-    "precache-manifest.09b48c813200d0b9397bcbffe8d4ea57.js": "/alissaChengQuickNotes/precache-manifest.09b48c813200d0b9397bcbffe8d4ea57.js",
+    "precache-manifest.f33d93d1fed8b00d86ea7fdf9b544324.js": "/alissaChengQuickNotes/precache-manifest.f33d93d1fed8b00d86ea7fdf9b544324.js",
     "service-worker.js": "/alissaChengQuickNotes/service-worker.js",
-    "static/css/main.b67989e0.chunk.css.map": "/alissaChengQuickNotes/static/css/main.b67989e0.chunk.css.map",
+    "static/css/main.e9d7817a.chunk.css.map": "/alissaChengQuickNotes/static/css/main.e9d7817a.chunk.css.map",
     "static/media/App.css": "/alissaChengQuickNotes/static/media/corkBoard.a71f26e3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.01972f80.js",
     "static/js/2.c9f9d984.chunk.js",
-    "static/css/main.b67989e0.chunk.css",
-    "static/js/main.f32d71bb.chunk.js"
+    "static/css/main.e9d7817a.chunk.css",
+    "static/js/main.f8a15d4d.chunk.js"
   ]
 }

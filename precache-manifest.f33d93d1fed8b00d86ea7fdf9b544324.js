@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "27b524d7e5d7be63a2f2299f97a126b3",
+    "revision": "969fd7f33cfe6e7af7ce637d39ffdc08",
     "url": "/alissaChengQuickNotes/index.html"
   },
   {
-    "revision": "46200819aa34dc2c8edf",
-    "url": "/alissaChengQuickNotes/static/css/main.b67989e0.chunk.css"
+    "revision": "b05362e1a978c313dcfd",
+    "url": "/alissaChengQuickNotes/static/css/main.e9d7817a.chunk.css"
   },
   {
     "revision": "6585b47eecbd59b6d33c",
     "url": "/alissaChengQuickNotes/static/js/2.c9f9d984.chunk.js"
   },
   {
-    "revision": "46200819aa34dc2c8edf",
-    "url": "/alissaChengQuickNotes/static/js/main.f32d71bb.chunk.js"
+    "revision": "b05362e1a978c313dcfd",
+    "url": "/alissaChengQuickNotes/static/js/main.f8a15d4d.chunk.js"
   },
   {
     "revision": "c5b95027cf623fb60956",
