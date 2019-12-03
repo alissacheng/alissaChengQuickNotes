@@ -336,7 +336,7 @@ input:checked + .slider:before {
   }
 
   .photos{
-    width: calc(94% - 216px);
+    width: calc(92% - 225px);
   }
 
   /* Make font size of sticky notes smaller */
