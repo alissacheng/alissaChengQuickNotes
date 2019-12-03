@@ -8,7 +8,6 @@ class App extends Component {
     constructor(){
         super();
         this.state ={
-            //empty array, booksList so render is able to map over something (even if it's nothing)
             notesList:[],
             userInput: ""
         }
@@ -35,12 +34,12 @@ class App extends Component {
             newNotes.push(singleNote)
         }
 
-        //2. Update our state - taking new array and updating it
+        //Update state for notes - taking new array and updating it
           this.setState({
               notesList:newNotes
           })
       })
-      //RETREIVE THEME LAST SAVED 
+      //Retrieve theme last saved from firebase database to place on page
       const themeRef = firebase.database().ref().child("theme")
 
       themeRef.on("value", (snapshot) =>{
@@ -65,19 +64,20 @@ class App extends Component {
         }
       })
     }
-
+    //Open dialog form for creating a new note when user clicks the plus sign
     openDialog = () => {
       document.getElementById("dialog").setAttribute("open", true)
       document.getElementById("dialog").classList.remove("visuallyHidden")
     }
-
+//Closing dialogs whenever user clicks the "x"
     closeDialog = () => {
       document.getElementById("dialog").removeAttribute("open")
       document.getElementById("dialog").classList.add("visuallyHidden")
       document.getElementById("welcome").removeAttribute("open")
       document.getElementById("welcome").classList.add("visuallyHidden")
     }
-
+//Switches between two themes available whenever user toggles switch
+//Pushes theme chosen to firebase to save preferred theme for later
     toggleTheme = (event) =>{
       const themeRef = firebase.database().ref().child("theme")
       if(event.target.checked === true){
@@ -89,14 +89,14 @@ class App extends Component {
       }
     }
 
-    //update STATE everytime user types inside input text bar
+    //Update state everytime user types inside input text bar
     handleChange = (event) =>{
         this.setState({
             userInput: event.target.value
         })
     }
 
-    //placed on the form
+    //Submitting form for creating a new note
     handleSubmit = (event) => {
         event.preventDefault();
         //Put what we submit, the book title, in a constant
@@ -116,25 +116,27 @@ class App extends Component {
         }
   
     }
-
+//Delete written note by user
     deleteNote = (event) => {
         console.log(event.target.id);
         const notesRef = firebase.database().ref().child("notes");
 
         notesRef.child(event.target.id).remove();
     }
-
+//Render on page
     render(){
         return(
             <main>
+              {/* Toggle switch for two themes */}
               <label className="switch" title="Change theme">
               <span class="visuallyHidden">Click here to change the theme</span>
                 <input type="checkbox" onChange={this.toggleTheme} id="toggleTheme" tabindex="0" className="visuallyHidden"/>
                 <span className="slider"></span>
               </label>
+              {/* Welcome message and instructions dialog */}
               <dialog id="welcome" className="welcome" open>
                 <div className="titleBar">
-                  <button id="closeBtn" onClick={this.closeDialog} title="Close window" className="remove">X</button>
+                  <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
                 </div>
                 <h1>Welcome to QuickNotes!</h1>
                 <p>QuickNotes is an application that allows you to save all your notes and photos in one convenient place.</p>
@@ -142,15 +144,18 @@ class App extends Component {
                 <ul>
                   <li>- Toggle the switch to change themes</li>
                   <li>- Click the plus sign (+) to create a new note</li>
-                  <li>- Click the arrow (🠉) to upload a photo</li>
+                  <li>- Click the triangle (▲) to upload a photo</li>
                   <li>- Click the "x" to delete an item and close the window</li>
                 </ul>
                 <p>Happy posting!</p>
               </dialog>
+              {/* Section for displaying notes */}
               <section className="notes wrapper" id="notes">
+                {/* Button to open dialog to create a new note */}
                 <button type="open" onClick={this.openDialog} title="New note">
                   <span class="visuallyHidden">Click here to write a new note</span>+
                 </button>
+                {/* Dialog for form for writing and submitting a new note */}
                 <dialog id="dialog" className="newNote visuallyHidden">
                   <form onSubmit={this.handleSubmit}>
                     <div className="titleBar">
@@ -160,6 +165,7 @@ class App extends Component {
                     <textarea type="text" id="noteText" rows="7" cols="16" onChange={this.handleChange} value={this.state.userInput}></textarea>
                   </form>
                 </dialog>
+                {/* Section to map array of notesList in state to display notes written by user */}
                 <ul>
                     {this.state.notesList.map((noteValue, i)=>{
                         return(

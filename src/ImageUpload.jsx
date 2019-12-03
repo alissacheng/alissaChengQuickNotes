@@ -5,12 +5,13 @@ class ImageUpload extends Component {
     constructor(){
         super();
         this.state = {
-            photosList: []
+            photosList: [],
+            selectedFile:null
         }
     }
 
     componentDidMount(){
-        //retrieve file name of each photo from database
+        //Retrieve file name of each photo from database and storage bucket
         firebase.database().ref().child("photos").on("value", (snapshot)=>{
             const photoName = snapshot.val();
             const newImages = [];
@@ -24,7 +25,7 @@ class ImageUpload extends Component {
                     }
 
                     newImages.push(singleImage);
-
+//Update the state for photos
                     this.setState({
                         photosList: newImages
                     })
@@ -34,8 +35,14 @@ class ImageUpload extends Component {
     }
 
     handleChange =(event) =>{
+        
         //This is the object file for the image uploaded
         const image = event.target.files[0]
+
+        //Bind input changes
+        this.setState({
+            selectedFile: image
+        })
 
         //Push the file name into the database
         //Note: Ideally I would get the image url immediately after downloading image into storage bucket and push/store THIS in the database (instead of the file name), but this causes issues, must store file name into database and THEN download its url at a later time
@@ -71,7 +78,7 @@ class ImageUpload extends Component {
         )
     }
 
-    //Remove photo name from database
+    //Remove photo name from database and storage bucket
     deletePhoto = (event) => {
         const photosRef = firebase.database().ref().child("photos");
         photosRef.child(event.target.id).remove();
@@ -81,10 +88,10 @@ class ImageUpload extends Component {
         return(
             <section className="photos wrapper" id="photos">
                 {/* Default file upload button hidden */}
-                <input id="fileUpload" type="file" className="customUpload visuallyHidden" tabindex="1" onChange={this.handleChange}/>
+                <input id="fileUpload" type="file" className="customUpload visuallyHidden" tabindex="1" onChange={this.handleChange} accept="image/*"/>
                 {/* Custom file upload button by styling label */}
                 <label for="fileUpload" className="customUpload" title="Upload photo">
-                    <span class="visuallyHidden">Click here to upload an image</span>🠉
+                    <span class="visuallyHidden">Click here to upload an image</span>▲ 
                 </label>
                 {/* Map photosList array in state to see all photos uploaded by user */}
                 <ul className="gallery">

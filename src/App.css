@@ -6,6 +6,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
+/* Defualt theme format and general font styles */
 html{
   background: url(./assets/corkBoard.jpg);
   background-size: contain;
@@ -40,6 +41,7 @@ main{
   margin-right: 35px;
 }
 
+/* WELCOME MESSAGE/DIALOG */
 /* Welcome message dialog */
 .welcome {
   top: 15vh;
@@ -48,10 +50,12 @@ main{
   background: white;
 }
 
+/* Close window button in welcome dialog */
 .welcome button{
   font-weight: bolder;
 }
 
+/* Welcome dialog title bar color */
 .welcome .titleBar{
   background: #2196F3;
 }
@@ -69,10 +73,6 @@ main{
   padding: 0 15px;
 }
 
-button.remove{
-  border-radius: 0px;
-}
-
 /* Quick Notes Title in welcome message */
 h1{
   font-size: 3.5rem;
@@ -80,6 +80,7 @@ h1{
   padding: 0;
 }
 
+/* STICKY NOTE FOR FORM/DIALOG */
 /* Format add new note dialog pop up */
 dialog{
   position: absolute;
@@ -89,18 +90,40 @@ dialog{
   z-index: 10;
   border: 2px solid black;
 }
-
+/* Make new note visible on screen regardless of where you are */
 .newNote{
   position: fixed;
 }
-
+/* Format dialog items */
 form{
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* Format Sticky Note */
+form textarea{
+  width: 100%;
+}
+
+/* Delete button for new note dialog/form */
+form button{
+border: none;
+background: rgb(248, 228, 137);
+}
+
+form .titleBar{
+  justify-content: space-between;
+}
+
+/* Add new note button */
+form button[type=submit]{
+  width: 115px;
+  align-self: flex-end;
+  font-size: 1.5rem;
+}
+
+/* GENERAL STICKY NOTE STYLES */
+/* Format Sticky Note textarea*/
 textarea {
   background: rgb(250, 237, 166);
   resize: none;
@@ -112,21 +135,14 @@ textarea {
   border-radius: 0px;
 }
 
-form textarea{
-  width: 100%;
-}
-
-form button{
-border: none;
-background: rgb(248, 228, 137);
-}
-
+/* Format sticky note titlebar */
 .titleBar{
   background: rgb(248, 228, 137);
   display: flex;
   justify-content: flex-end;
 }
 
+/* Sticky note delete button - aslo for form/dialog*/
 .titleBar .delete,
 form button{
   padding: 5px 10px;
@@ -147,17 +163,7 @@ form button:focus{
   background: rgb(230, 207, 109);
 }
 
-form .titleBar{
-  justify-content: space-between;
-}
-
-form button[type=submit]{
-  width: 115px;
-  align-self: flex-end;
-  font-size: 1.5rem;
-}
-
-/* Format List - photos and notes */
+/* Format List of photos and notes */
 ul{
   display: flex;
   flex-direction: row-reverse;
@@ -167,6 +173,7 @@ ul{
   padding: 0;
 }
 
+/* Add padding for each list item */
 .notes li{
   padding: 6.5px;
 }
@@ -175,17 +182,14 @@ ul{
   padding: 6px;
 }
 
+/* Set max dimensions for image  */
 img{
   max-height: 199px;
   max-width: 278px;
 }
 
-.gallery{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* File upload button */
+/* Button styles */
+/* File upload button and new note button */
 button[type=open],
 .customUpload{
   font-weight: bolder;
@@ -198,6 +202,7 @@ button[type=open],
   transition: 0.3s;
 }
 
+/* New Note button */
 button[type=open]{
   padding: 6px 14px;
   font-size: 3.5rem;
@@ -207,8 +212,14 @@ button[type=open]{
   top: 200px;
 }
 
-input[type=file]{
-  padding: 15px;
+/* Upload file button */
+.customUpload{
+  font-size: 2.75rem;
+  cursor: pointer;
+  padding: 7px 14px;
+  top: 100px;
+  right: 15px;
+  position: fixed;
 }
 
 /* Hover and focus states for upload photo and new note buttons */
@@ -219,7 +230,7 @@ input.customUpload:focus + label{
   color: #2196F3;
 }
 
-/* Visually hide toggle checkbox, input file upload and labels */
+/* Visually hide dialogs, toggle checkbox, input file upload and labels */
 .visuallyHidden { 
   position: absolute !important;
   height: 1px; 
@@ -228,15 +239,6 @@ input.customUpload:focus + label{
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
-}
-
-.customUpload{
-  font-size: 2.75rem;
-  cursor: pointer;
-  padding: 7px 13px;
-  top: 100px;
-  right: 15px;
-  position: fixed;
 }
 
 /* Toggle Theme */
@@ -263,6 +265,16 @@ input.customUpload:focus + label{
   transition: .4s;
 }
 
+input:checked + .slider {
+  background-color: #ccc;
+  box-shadow: 0 0 3px rgb(138, 138, 138);
+}
+
+input + .slider {
+  box-shadow: 0 0 3px rgb(26, 115, 187);
+}
+
+/* Switch styles */
 .slider:before {
   position: absolute;
   content: "";
@@ -273,15 +285,6 @@ input.customUpload:focus + label{
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #ccc;
-  box-shadow: 0 0 3px rgb(138, 138, 138);
-}
-
-input + .slider {
-  box-shadow: 0 0 3px rgb(26, 115, 187);
 }
 
 input:hover + .slider::before,
@@ -304,7 +307,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* footer section */
+/* Footer section */
 footer{
   position: fixed;
   bottom: 65px;
@@ -315,6 +318,8 @@ footer{
 /* Responsive */
 /* Small desktop */
 @media (max-width: 1250px){
+
+  /* Make width of each section smaller */
   .notes{
     width: 452px;
   }
@@ -323,13 +328,16 @@ footer{
     width: calc(95% - 470px);
   }
 
+  /* Change padding for every list item */
   li{
     padding: 7px;
   }
 
 }
 
+/* Tablet */
 @media (max-width: 830px){
+  /* Make width of each section smaller */
   .notes {
     width: 226px;
   }
@@ -338,23 +346,29 @@ footer{
     width: calc(94% - 216px);
   }
 
+  /* Make font size of sticky notes smaller */
   textarea{
     font-size: 1.5rem;
   }
 }
 
+/* Landscape mobile */
 @media (max-width: 630px){
+  /* Welcome pop up make smaller */
   .welcome{
     width: 500px;
   }
 }
 
+/* Mobile */
 @media (max-width: 550px){
+  /* Make each item display in one column */
   main{
     flex-direction: column;
     align-items: center;
   }
 
+  /* Remove margins for both sections */
   .notes,
   .photos{
     margin-left: 0;
@@ -365,6 +379,7 @@ footer{
     margin-top: 0;
   }
 
+  /* Remove gap between photos and notes section */
   .notes li:last-of-type{
     padding-bottom: 0;
   }
@@ -373,6 +388,12 @@ footer{
     padding-top: 0;
   }
 
+  /* Center each list item */
+  ul{
+    justify-content: center;
+  }
+
+  /* Change padding for each list item */
   .notes li{
     padding: 8px;
   }
@@ -381,18 +402,10 @@ footer{
     padding: 7px;
   }
 
+  /* Make welcome message smaller */
   .welcome{
     width: 300px;
     top: 5vh
-  }
-
-  .newNote{
-    width: 220px;
-    top: 10vh;
-  }
-
-  ul{
-    justify-content: center;
   }
 
   h1{
@@ -404,15 +417,23 @@ footer{
     font-size: 1.5rem;
   }
 
+  /* Reformat dialog for new note */
+  .newNote{
+    width: 220px;
+    top: 10vh;
+  }
+
   .photos{
     margin-top: 0;
   }
 
+  /* Upload image button make smaller */
   .customUpload{
     font-size: 2.25rem;
-    padding: 5px 9px;
+    padding: 5px 10px;
   }
 
+    /* New note button make smaller*/
   button[type=open]{
     font-size: 2.75rem;
     padding: 5px 10px;
@@ -420,6 +441,7 @@ footer{
     top: 180px;
   }
 
+  /* Make toggle switch smaller */
   .switch{
     width: 50px;
     height: 26px;
