@@ -151,7 +151,7 @@ class App extends Component {
                 <button type="open" onClick={this.openDialog} title="New note">
                   <span class="visuallyHidden">Click here to write a new note</span>+
                 </button>
-                <dialog id="dialog" className="newNote">
+                <dialog id="dialog" className="newNote visuallyHidden">
                   <form onSubmit={this.handleSubmit}>
                     <div className="titleBar">
                       <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
