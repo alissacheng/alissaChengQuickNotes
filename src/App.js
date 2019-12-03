@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import './App.css';
-import firebase from './firebase.js'
-import ImageUpload from './ImageUpload'
+import React, {Component} from "react";
+import "./App.css";
+import firebase from "./firebase.js"
+import ImageUpload from "./ImageUpload"
 
 class App extends Component {
 
@@ -22,17 +22,16 @@ class App extends Component {
 
         const newNotes = [];
 
-        //for every object, we create a new object with two key values: book title and book id
+        //for every object, we create a new object with two key values: note text and note id
         for(let key in notes){
           console.log(notes[key])
 
-          //Find out the key of each book value in firebase, to figure out how to delete each one
-          //Making an object into an array of objects
+          //Find out the key of each note value in firebase, to figure out how to delete each later
           const singleNote = {
               noteId: key,
               noteText: notes[key]
             }
-//AFTER CHANGING DATA, WE PUSH BOOK ONTO NEW BOOKS ARRAY
+
             newNotes.push(singleNote)
         }
 
@@ -42,7 +41,7 @@ class App extends Component {
           })
       })
       //RETREIVE THEME LAST SAVED 
-      const themeRef = firebase.database().ref().child('theme')
+      const themeRef = firebase.database().ref().child("theme")
 
       themeRef.on("value", (snapshot) =>{
         const theme = snapshot.val()
@@ -57,7 +56,7 @@ class App extends Component {
           }
 
           if(lavender === cork){
-            document.body.style.background = "url(./assets/cork-board-light.jpg)"
+            document.body.style.background = "url(./assets/corkBoard.jpg)"
             document.getElementById("toggleTheme").checked = false;
           }else{
             document.body.style.background = "#8386de"
@@ -73,6 +72,7 @@ class App extends Component {
 
     closeDialog = () => {
       document.getElementById("dialog").removeAttribute("open")
+      document.getElementById("welcome").removeAttribute("open")
     }
 
     toggleTheme = (event) =>{
@@ -81,7 +81,7 @@ class App extends Component {
         document.body.style.background = "#8386de"
         themeRef.push("lavender")
       }else{
-        document.body.style.background = "url(./assets/cork-board-dark.jpg)"
+        document.body.style.background = "url(./assets/corkBoard.jpg)"
         themeRef.push("cork")
       }
     }
@@ -101,7 +101,7 @@ class App extends Component {
         //add 'booksToAdd' to firebase (so that the dbRef listener will be called and it willl update state and cause the app to re-render)
 
         //push to firebase
-        const notesRef = firebase.database().ref().child('notes')
+        const notesRef = firebase.database().ref().child("notes")
 
         // Make sure no empty strings are submitted
         if(addNote !== ""){
@@ -116,7 +116,7 @@ class App extends Component {
 
     deleteNote = (event) => {
         console.log(event.target.id);
-        const notesRef = firebase.database().ref().child('notes');
+        const notesRef = firebase.database().ref().child("notes");
 
         notesRef.child(event.target.id).remove();
     }
@@ -125,45 +125,55 @@ class App extends Component {
         return(
             <main>
               <label className="switch" title="Change theme">
-                <input type="checkbox" onChange={this.toggleTheme} id="toggleTheme"/>
+              <span class="visuallyHidden">Click here to change the theme</span>
+                <input type="checkbox" onChange={this.toggleTheme} id="toggleTheme" tabindex="0" className="visuallyHidden"/>
                 <span className="slider"></span>
               </label>
-              {/* <dialog id="dialog">
-                <div className="draggable">
-                <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
+              <dialog id="welcome" className="welcome" open>
+                <div className="titleBar">
+                  <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
                 </div>
                 <h1>Welcome to QuickNotes!</h1>
-                <p>QuickNotes is an application that allows you to save notes and photos</p>
-                <p>Click here to switch between themes</p>
-                <p>Click here to create a new note</p>
-                <p>Click here to upload a photo</p>
+                <p>QuickNotes is an application that allows you to save all your notes and photos in one convenient place.</p>
+                <p>Choose one of the three buttons in the top right corner to get started:</p>
+                <ul>
+                  <li>- Toggle the switch to change themes</li>
+                  <li>- Click the plus sign (+) to create a new note</li>
+                  <li>- Click the arrow (🠉) to upload a photo</li>
+                  <li>- Click the "x" to delete an item or close the window</li>
+                </ul>
                 <p>Happy posting!</p>
-              </dialog> */}
-              <section className="notes wrapper">
-                <button type="open" onClick={this.openDialog} title="New note">+</button>
-                <dialog id="dialog">
+              </dialog>
+              <section className="notes wrapper" id="notes">
+                <button type="open" onClick={this.openDialog} title="New note">
+                  <span class="visuallyHidden">Click here to write a new note</span>+
+                </button>
+                <dialog id="dialog" className="newNote">
                   <form onSubmit={this.handleSubmit}>
-                    <div className="draggable">
+                    <div className="titleBar">
                       <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
                       <button type="submit" title="Submit note">Add Note +</button>
                     </div>
-                    <textarea type="text" id="noteText" rows="7" cols="17" onChange={this.handleChange} value={this.state.userInput}></textarea>
+                    <textarea type="text" id="noteText" rows="7" cols="16" onChange={this.handleChange} value={this.state.userInput}></textarea>
                   </form>
                 </dialog>
                 <ul>
                     {this.state.notesList.map((noteValue, i)=>{
                         return(
                             <li key={i}>
-                              <div className="draggable">
-                                <span id={noteValue.noteId} className="delete" onClick={this.deleteNote} title="Delete note">X</span>
+                              <div className="titleBar">
+                                <button id={noteValue.noteId} className="delete" onClick={this.deleteNote} title="Delete note" tabindex="0">X</button>
                               </div>
-                              <textarea rows="7" cols="17" value={noteValue.noteText} readOnly></textarea>
+                              <textarea rows="7" cols="16" value={noteValue.noteText} readOnly></textarea>
                             </li>
                         )
                     })}
                 </ul>
               </section>
               <ImageUpload/>
+              <footer>
+                <p>Copyright © Alissa Cheng 2019</p>
+              </footer>
             </main>
         )
     }

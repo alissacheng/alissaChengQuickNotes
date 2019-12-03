@@ -7,30 +7,87 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
 html{
-  background: url(./assets/cork-board-dark.jpg);
+  background: url(./assets/corkBoard.jpg);
   background-size: contain;
   background-repeat: repeat;
   font-size: 62.5%;
 }
 
+/* wrapper styles */
 .wrapper{
   max-width: 1200px;
   margin-top: 50px;
 }
 
+main{
+  display: flex;
+  min-height: 100vh;
+  max-height: 100%;
+}
+
+/* .showImages{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.viewAll{
+  position: absolute;
+  top: 10px;
+  left: 100px;
+} */
+
+/* format notes section */
 .notes{
-  width: 53%;
+  width: 678px;
   margin-left: 2%;
 }
 
+/* formate photos section */
 .photos{
-  width: 45%;
+  width: calc(95% - 678px);
+  margin-right: 2%;
 }
 
+/* WELCOME message dialog */
+.welcome {
+  top: 15vh;
+  width: 600px;
+  font-size: 2rem;
+  background: white;
+}
+
+.welcome button{
+  font-family: cursive;
+  font-weight: bolder;
+}
+
+.welcome .titleBar{
+  background: #2196F3;
+}
+
+/* Add padding around text in welcome message */
+.welcome li{
+  padding: 0;
+}
+
+.welcome ul{
+  display: block;
+  padding: 0 15px;
+}
+.welcome p{
+  padding: 0 15px;
+}
+
+/* Quick Notes Title in welcome message */
 h1{
-  text-shadow: 2px 2px 4px #ffffff;
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 0;
+  font-family: 'calibri', sans-serif;
 }
 
+/* Format add new note dialog pop up */
 dialog{
   position: absolute;
   top: 30vh;
@@ -45,16 +102,20 @@ form{
   flex-direction: column;
 }
 
+/* Format Sticky Note */
 textarea {
   background: rgb(250, 237, 166);
   resize: none;
   border: none;
-  position: relative;
-  bottom: 1px;
   font-family: 'calibri', sans-serif;
   padding: 13.5px 15px;
   font-size: 1.75rem;
   height: 200px;
+  width: 212px;
+}
+
+form textarea{
+  width: 100%;
 }
 
 form button{
@@ -62,13 +123,13 @@ border: none;
 background: rgb(248, 228, 137);
 }
 
-.draggable{
+.titleBar{
   background: rgb(248, 228, 137);
   display: flex;
   justify-content: flex-end;
 }
 
-.draggable span,
+.titleBar .delete,
 form button{
   padding: 5px 10px;
   font-family: cursive;
@@ -78,16 +139,18 @@ form button{
   color: #282c34a4;
   width: 30px;
   font-size: 1.5rem;
+  border: none;
+  background: rgb(248, 228, 137);
 }
 
-.draggable span:hover,
-.draggable span:focus,
+.titleBar .delete:hover,
+.titleBar .delete:focus,
 form button:hover,
 form button:focus{
   background: rgb(230, 207, 109);
 }
 
-form .draggable{
+form .titleBar{
   justify-content: space-between;
 }
 
@@ -98,6 +161,7 @@ form button[type=submit]{
   font-size: 1.75rem;
 }
 
+/* Format Photos List */
 ul{
   display: flex;
   flex-direction: row-reverse;
@@ -107,12 +171,17 @@ ul{
   padding: 0;
 }
 
-li{
-  padding: 1%;
+.notes li{
+  padding: 6.5px;
+}
+
+.photos li{
+  padding: 6px;
 }
 
 img{
-  max-height: 200px;
+  max-height: 199px;
+  max-width: 278px;
 }
 
 .gallery{
@@ -120,14 +189,9 @@ img{
   flex-wrap: wrap;
 }
 
-main{
-  display: flex;
-  min-height: 100vh;
-  max-height: 100%;
-}
-
+/* File upload button */
 button[type=open],
-.custom-file-upload{
+.customUpload{
   font-weight: bolder;
   background:white;
   cursor: pointer;
@@ -142,19 +206,21 @@ button[type=open]{
   padding: 6px 14px;
   font-size: 3.5rem;
   padding-top: 0;
-  position: absolute;
+  position: fixed;
   right: 15px;
   top: 200px;
 }
 
+/* Hover and focus states for upload photo and new note buttons */
 button[type=open]:hover,
 button[type=open]:focus,
-.custom-file-upload:hover,
-.custom-file-upload:focus{
+input.customUpload:hover + label,
+input.customUpload:focus + label{
   color: #2196F3;
 }
 
-.visually-hidden { 
+/* Visually hide toggle checkbox, input file upload and labels */
+.visuallyHidden { 
   position: absolute !important;
   height: 1px; 
   width: 1px;
@@ -164,29 +230,24 @@ button[type=open]:focus,
   white-space: nowrap; /* added line */
 }
 
-.custom-file-upload{
+.customUpload{
   font-size: 2.75rem;
   cursor: pointer;
   padding: 7px 13px;
-  position: absolute;
-  top: 50px;
+  top: 100px;
   right: 15px;
+  position: fixed;
 }
-/* The switch - the box around the slider */
+
+/* Toggle Theme */
+/* Container holding the switch button */
 .switch {
   position: absolute;
   display: inline-block;
-  top:10px;
-  right: 10px;
+  top:15px;
+  right: 15px;
   width: 60px;
   height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
 }
 
 /* The slider */
@@ -216,11 +277,16 @@ button[type=open]:focus,
 
 input:checked + .slider {
   background-color: #ccc;
-  box-shadow: 0 0 3px rgb(170, 170, 170);
+  box-shadow: 0 0 3px rgb(138, 138, 138);
 }
 
 input + .slider {
-  box-shadow: 0 0 3px rgb(29, 125, 204);
+  box-shadow: 0 0 3px rgb(26, 115, 187);
+}
+
+input:hover + .slider::before,
+input:focus + .slider::before{
+  box-shadow: 0 0 5px rgb(37, 37, 37);
 }
 
 input:checked + .slider:before {
@@ -240,4 +306,116 @@ input:checked + .slider:before {
 
 input[type=file]{
   padding: 15px;
+}
+
+/* footer section */
+footer{
+  position: fixed;
+  bottom: 60px;
+  right: -60px;
+  transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 1250px){
+  .notes{
+    width: 452px;
+  }
+
+  .photos{
+    width: calc(95% - 460px);
+  }
+
+  li{
+    padding: 7px;
+  }
+
+}
+
+@media (max-width: 830px){
+  .notes {
+    width: 226px;
+  }
+
+  .photos{
+    width: calc(94% - 226px);
+  }
+}
+
+@media (max-width: 630px){
+  .welcome{
+    width: 500px;
+  }
+}
+
+@media (max-width: 550px){
+  main{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .notes,
+  .photos{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .photots{
+    margin-top: 0;
+  }
+
+  .notes li:last-of-type{
+    padding-bottom: 0;
+  }
+
+  .photos li:first-of-type{
+    padding-top: 0;
+  }
+
+  .notes li{
+    padding: 8px;
+  }
+
+  .photos li{
+    padding: 7px;
+  }
+
+  .welcome{
+    width: 300px;
+    top: 5vh
+  }
+
+  .newNote{
+    width: 300px;
+    top: 10vh;
+  }
+
+  ul{
+    justify-content: center;
+  }
+
+  h1{
+    font-size: 3rem;
+  }
+
+  .welcome p,
+  .welcome li{
+    font-size: 1.5rem;
+  }
+
+  .photos{
+    margin-top: 0;
+  }
+
+.customUpload{
+  font-size: 2rem;
+  padding: 5px 9px;
+}
+
+button[type=open]{
+  font-size: 2.5rem;
+  padding: 5px 10px;
+  padding-top: 0;
+}
+
 }
