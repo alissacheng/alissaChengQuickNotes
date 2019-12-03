@@ -307,14 +307,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Footer section */
-footer{
-  position: fixed;
-  bottom: 65px;
-  right: -60px;
-  transform: rotate(90deg);
-}
-
 /* Responsive */
 /* Small desktop */
 @media (max-width: 1250px){

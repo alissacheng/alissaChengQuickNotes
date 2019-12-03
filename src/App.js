@@ -180,9 +180,6 @@ class App extends Component {
                 </ul>
               </section>
               <ImageUpload/>
-              <footer>
-                <p>Copyright © Alissa Cheng 2019</p>
-              </footer>
             </main>
         )
     }
