@@ -85,7 +85,7 @@ class ImageUpload extends Component {
             )
         
         }else{
-            alert("Sorry! The file format you uploaded could not be processed.")
+            alert("Sorry! The file format you uploaded could not be processed. Only JPG, JPEG, PNG and GIF files are allowed.")
         }
     }
 
