@@ -20,10 +20,12 @@ html{
   margin-top: 50px;
 }
 
+/* Use main to flex notes and photo section */
 main{
   display: flex;
   min-height: 100vh;
   max-height: 100%;
+  overflow: hidden;
 }
 
 /* format notes section */
@@ -67,7 +69,7 @@ main{
   padding: 0 15px;
 }
 
-.welcome button{
+button.remove{
   border-radius: 0px;
 }
 
@@ -318,7 +320,7 @@ footer{
   }
 
   .photos{
-    width: calc(95% - 460px);
+    width: calc(95% - 470px);
   }
 
   li{
@@ -333,7 +335,7 @@ footer{
   }
 
   .photos{
-    width: calc(94% - 226px);
+    width: calc(94% - 216px);
   }
 
   textarea{

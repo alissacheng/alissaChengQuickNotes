@@ -134,7 +134,7 @@ class App extends Component {
               </label>
               <dialog id="welcome" className="welcome" open>
                 <div className="titleBar">
-                  <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
+                  <button id="closeBtn" onClick={this.closeDialog} title="Close window" className="remove">X</button>
                 </div>
                 <h1>Welcome to QuickNotes!</h1>
                 <p>QuickNotes is an application that allows you to save all your notes and photos in one convenient place.</p>
