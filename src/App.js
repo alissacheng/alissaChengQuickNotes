@@ -68,11 +68,14 @@ class App extends Component {
 
     openDialog = () => {
       document.getElementById("dialog").setAttribute("open", true)
+      document.getElementById("dialog").classList.remove("visuallyHidden")
     }
 
     closeDialog = () => {
       document.getElementById("dialog").removeAttribute("open")
+      document.getElementById("dialog").classList.add("visuallyHidden")
       document.getElementById("welcome").removeAttribute("open")
+      document.getElementById("welcome").classList.add("visuallyHidden")
     }
 
     toggleTheme = (event) =>{
@@ -140,7 +143,7 @@ class App extends Component {
                   <li>- Toggle the switch to change themes</li>
                   <li>- Click the plus sign (+) to create a new note</li>
                   <li>- Click the arrow (🠉) to upload a photo</li>
-                  <li>- Click the "x" to delete an item or close the window</li>
+                  <li>- Click the "x" to delete an item and close the window</li>
                 </ul>
                 <p>Happy posting!</p>
               </dialog>

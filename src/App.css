@@ -11,6 +11,7 @@ html{
   background-size: contain;
   background-repeat: repeat;
   font-size: 62.5%;
+  font-family: "Calibri", sans-serif;
 }
 
 /* wrapper styles */
@@ -58,7 +59,6 @@ main{
 }
 
 .welcome button{
-  font-family: cursive;
   font-weight: bolder;
 }
 
@@ -84,7 +84,6 @@ h1{
   font-size: 3.5rem;
   text-align: center;
   padding: 0;
-  font-family: 'calibri', sans-serif;
 }
 
 /* Format add new note dialog pop up */
@@ -107,11 +106,11 @@ textarea {
   background: rgb(250, 237, 166);
   resize: none;
   border: none;
-  font-family: 'calibri', sans-serif;
   padding: 13.5px 15px;
   font-size: 1.75rem;
   height: 200px;
   width: 212px;
+  border-radius: 0px;
 }
 
 form textarea{
@@ -132,13 +131,12 @@ background: rgb(248, 228, 137);
 .titleBar .delete,
 form button{
   padding: 5px 10px;
-  font-family: cursive;
   font-weight: bold;
   display: block;
   cursor: pointer;
   color: #282c34a4;
   width: 30px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   border: none;
   background: rgb(248, 228, 137);
 }
@@ -155,10 +153,9 @@ form .titleBar{
 }
 
 form button[type=submit]{
-  font-family: "Calibri", sans-serif;
-  width: 110px;
+  width: 115px;
   align-self: flex-end;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 /* Format Photos List */
@@ -416,6 +413,11 @@ button[type=open]{
   font-size: 2.5rem;
   padding: 5px 10px;
   padding-top: 0;
+}
+
+.customUpload,
+button[type=open]{
+  right: 10px;
 }
 
 }
