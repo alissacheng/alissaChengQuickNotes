@@ -351,6 +351,10 @@ input:checked + .slider:before {
   .welcome{
     width: 500px;
   }
+
+  .photos{
+    width: 300px;
+  }
 }
 
 /* Mobile */
