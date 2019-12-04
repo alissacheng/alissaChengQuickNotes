@@ -109,10 +109,10 @@ class ImageUpload extends Component {
                     {this.state.photosList.map((item, i)=>{
                         return(
                         <li key={i}>
-                        <div className="titleBar">
-                            <button id={item.photoId} className="delete" onClick={this.deletePhoto} title="Delete photo" tabIndex="0">X</button>
-                        </div>
-                        <img src={item.photoUrl} alt={item.photoName}/>
+                            <div className="titleBar">
+                                <button id={item.photoId} className="delete" onClick={this.deletePhoto} title="Delete photo" tabIndex="0">X</button>
+                            </div>
+                            <img src={item.photoUrl} alt={item.photoName}/>
                         </li>
                         )
                     })}
