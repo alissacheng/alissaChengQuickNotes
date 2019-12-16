@@ -161,7 +161,7 @@ class App extends Component {
                 <dialog id="dialog" className="newNote visuallyHidden">
                   <form>
                     <div className="titleBar">
-                      <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
+                      <button type="button" id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
                       <button type="submit" title="Submit note" onClick={this.handleSubmit}>Add Note +</button>
                     </div>
                     <textarea type="text" id="noteText" rows="7" cols="16" onChange={this.handleChange} value={this.state.userInput}></textarea>
