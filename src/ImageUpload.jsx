@@ -99,7 +99,7 @@ class ImageUpload extends Component {
         return(
             <section className="photos wrapper" id="photos">
                 {/* Default file upload button hidden */}
-                <input id="fileUpload" type="file" className="customUpload visuallyHidden" tabIndex="1" onChange={this.handleChange} accept="image/*"/>
+                <input id="fileUpload" type="file" className="customUpload visuallyHidden" tabIndex="0" onChange={this.handleChange} accept="image/*"/>
                 {/* Custom file upload button by styling label */}
                 <label htmlFor="fileUpload" className="customUpload" title="Upload photo">
                     <span className="visuallyHidden">Click here to upload an image</span>▲ 
