@@ -112,6 +112,8 @@ class App extends Component {
             this.setState({
                 userInput: ""
             })
+        }else{
+          alert("Sorry! Blank notes cannot be submitted.")
         }
   
     }
