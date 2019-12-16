@@ -119,10 +119,11 @@ class App extends Component {
     }
 //Delete written note by user
     deleteNote = (event) => {
+      event.preventDefault();
 
-        const notesRef = firebase.database().ref().child("notes");
+      const notesRef = firebase.database().ref().child("notes");
 
-        notesRef.child(event.target.id).remove();
+      notesRef.child(event.target.id).remove();
     }
 //Render on page
     render(){
