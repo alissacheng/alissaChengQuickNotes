@@ -93,6 +93,9 @@ class ImageUpload extends Component {
     deletePhoto = (event) => {
         const photosRef = firebase.database().ref().child("photos");
         photosRef.child(event.target.id).remove();
+
+         //remove from storage bucket
+         storage.ref().child(event.target.name).delete() 
     }
 
     render(){
@@ -110,7 +113,7 @@ class ImageUpload extends Component {
                         return(
                         <li key={i}>
                             <div className="titleBar">
-                                <button id={item.photoId} className="delete" onClick={this.deletePhoto} title="Delete photo" tabIndex="0">X</button>
+                                <button id={item.photoId} name={item.photoName}className="delete" onClick={this.deletePhoto} title="Delete photo" tabIndex="0">X</button>
                             </div>
                             <img src={item.photoUrl} alt={item.photoName}/>
                         </li>
