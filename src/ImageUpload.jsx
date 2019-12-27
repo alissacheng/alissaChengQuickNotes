@@ -95,7 +95,7 @@ class ImageUpload extends Component {
         photosRef.child(event.target.id).remove();
 
          //remove from storage bucket
-         storage.ref().child(event.target.name).delete() 
+        storage.ref().child(event.target.name).delete() 
     }
 
     render(){
