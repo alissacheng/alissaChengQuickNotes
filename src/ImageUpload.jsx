@@ -94,8 +94,17 @@ class ImageUpload extends Component {
         const photosRef = firebase.database().ref().child("photos");
         photosRef.child(event.target.id).remove();
 
-         //remove from storage bucket
-        storage.ref().child(event.target.name).delete() 
+        //remove from storage bucket only if there isn't twp of the same image
+        let amount = 0
+        this.state.photosList.forEach(element => {
+            if(event.target.name === element.photoName){
+                amount += 1
+            }
+        })
+        //if amount of images in state is one or less, than there are no duplicates
+        if(amount < 2){
+            storage.ref().child(event.target.name).delete() 
+        }
     }
 
     render(){
