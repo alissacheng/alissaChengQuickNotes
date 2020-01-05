@@ -160,7 +160,8 @@ class App extends Component {
               item.noteText = addNote
         //set state of newly changed array of notes list to bind inputs
               this.setState({
-                notesList: cloneNotesList
+                notesList: cloneNotesList,
+                userID: null
               })
             }
           })
