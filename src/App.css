@@ -145,7 +145,8 @@ textarea {
   justify-content: flex-end;
 }
 
-li .titleBar{
+/* Format sticky note titlebar for written notes only */
+.notes .titleBar{
   justify-content: space-between;
 }
 

@@ -230,13 +230,13 @@ class App extends Component {
                   </form>
                 </dialog>
                 {/* Section to map array of notesList in state to display notes written by user */}
-                <ul>
+                <ul className="notes">
                     {this.state.notesList.map((noteValue, i)=>{
                         return(
                             <li key={i}>
                               <div className="titleBar">
+                                <button id={noteValue.noteId} value={noteValue.noteText} className="edit" title="Edit note" onClick={this.editNote}>📝 Edit</button>
                                 <button id={noteValue.noteId} className="delete" onClick={this.deleteNote} title="Delete note" tabIndex="0">X</button>
-                                <button id={noteValue.noteId} value={noteValue.noteText} className="edit" title="Edit note" onClick={this.editNote}>Edit 📝</button>
                               </div>
                               <textarea rows="7" cols="16" value={noteValue.noteText} readOnly></textarea>
                             </li>
