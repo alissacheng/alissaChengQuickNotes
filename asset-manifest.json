@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/alissaChengQuickNotes/static/css/main.e269ab97.chunk.css",
+    "main.css": "/alissaChengQuickNotes/static/css/main.7df27227.chunk.css",
     "main.js": "/alissaChengQuickNotes/static/js/main.1f6b04d4.chunk.js",
     "main.js.map": "/alissaChengQuickNotes/static/js/main.1f6b04d4.chunk.js.map",
     "runtime-main.js": "/alissaChengQuickNotes/static/js/runtime-main.01972f80.js",
@@ -8,15 +8,15 @@
     "static/js/2.debb683a.chunk.js": "/alissaChengQuickNotes/static/js/2.debb683a.chunk.js",
     "static/js/2.debb683a.chunk.js.map": "/alissaChengQuickNotes/static/js/2.debb683a.chunk.js.map",
     "index.html": "/alissaChengQuickNotes/index.html",
-    "precache-manifest.04bc848f17b2ecaca776b2bc17f7fc57.js": "/alissaChengQuickNotes/precache-manifest.04bc848f17b2ecaca776b2bc17f7fc57.js",
+    "precache-manifest.238d977f3be4c6a8fe11af9e3e9b5e18.js": "/alissaChengQuickNotes/precache-manifest.238d977f3be4c6a8fe11af9e3e9b5e18.js",
     "service-worker.js": "/alissaChengQuickNotes/service-worker.js",
-    "static/css/main.e269ab97.chunk.css.map": "/alissaChengQuickNotes/static/css/main.e269ab97.chunk.css.map",
+    "static/css/main.7df27227.chunk.css.map": "/alissaChengQuickNotes/static/css/main.7df27227.chunk.css.map",
     "static/media/App.css": "/alissaChengQuickNotes/static/media/corkBoard.a71f26e3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.01972f80.js",
     "static/js/2.debb683a.chunk.js",
-    "static/css/main.e269ab97.chunk.css",
+    "static/css/main.7df27227.chunk.css",
     "static/js/main.1f6b04d4.chunk.js"
   ]
 }
