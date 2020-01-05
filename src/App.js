@@ -202,7 +202,6 @@ class App extends Component {
                   <li>- Click the triangle (▲) to upload a photo</li>
                   <li>- Click the plus sign (+) to create a new note</li>
                   <li>- Click the "x" to delete an item and close the window</li>
-                  <li>- Click the notepad (📝) to edit a previous note</li>
                 </ul>
               </dialog>
               {/* Section for displaying notes */}
@@ -236,7 +235,7 @@ class App extends Component {
                         return(
                             <li key={i}>
                               <div className="titleBar">
-                                <button id={noteValue.noteId} value={noteValue.noteText} className="edit" title="Edit note" onClick={this.editNote}>📝</button>
+                                <button id={noteValue.noteId} value={noteValue.noteText} className="edit" title="Edit note" onClick={this.editNote}>📝 Edit</button>
                                 <button id={noteValue.noteId} className="delete" onClick={this.deleteNote} title="Delete note" tabIndex="0">X</button>
                               </div>
                               <textarea rows="7" cols="16" value={noteValue.noteText} readOnly></textarea>
