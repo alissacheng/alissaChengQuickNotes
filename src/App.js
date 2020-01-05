@@ -204,7 +204,6 @@ class App extends Component {
                   <li>- Click the "x" to delete an item and close the window</li>
                   <li>- Click the notepad (📝) to edit a previous note</li>
                 </ul>
-                <p>Happy posting!</p>
               </dialog>
               {/* Section for displaying notes */}
               <section className="notes wrapper" id="notes">
