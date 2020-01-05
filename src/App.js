@@ -10,7 +10,7 @@ class App extends Component {
         this.state ={
             notesList:[],
             userInput: "",
-            userID: null
+            userId: null
         }
     }
 
@@ -129,11 +129,11 @@ class App extends Component {
 //Bind inputs
       this.setState({
         userInput: event.target.value,
-        userID: event.target.id
+        userId: event.target.id
       })
 
     }
-
+//Save note after edits
     saveNote = (event) =>{
       event.preventDefault();
 
@@ -151,17 +151,17 @@ class App extends Component {
           document.getElementById("edit").classList.add("visuallyHidden")
             
 //update firebase, then update state by cloning notesList array and changing it
-          firebase.database().ref("notes/" + this.state.userID).set(addNote);
+          firebase.database().ref("notes/" + this.state.userId).set(addNote);
         //Clone notes list array to edit it because cannot edit original array in state directly
           const cloneNotesList = [...this.state.notesList]
           //Find id of notes list being edited and change it to new value
           cloneNotesList.forEach( item => {
-            if (item.noteId === this.state.userID){
+            if (item.noteId === this.state.userId){
               item.noteText = addNote
         //set state of newly changed array of notes list to bind inputs
               this.setState({
                 notesList: cloneNotesList,
-                userID: null
+                userId: null
               })
             }
           })
@@ -220,6 +220,7 @@ class App extends Component {
                     <textarea type="text" id="noteText" rows="7" cols="16" onChange={this.handleChange} value={this.state.userInput}></textarea>
                   </form>
                 </dialog>
+                {/* Dialog for form for editing and saving previous notes */}
                 <dialog id="edit" className="newNote visuallyHidden">
                   <form>
                     <div className="titleBar">
