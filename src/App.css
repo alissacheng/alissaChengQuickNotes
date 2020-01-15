@@ -155,7 +155,7 @@ textarea {
   border: none;
   font-size: 1.5rem;
   padding: 0 10px;
-  color: #282c34a4;
+  color: #282c34ea;
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -167,7 +167,7 @@ form button{
   font-weight: bold;
   display: block;
   cursor: pointer;
-  color: #282c34a4;
+  color: #282c34ea;
   width: 30px;
   font-size: 1.25rem;
   border: none;
