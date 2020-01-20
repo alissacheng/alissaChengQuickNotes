@@ -85,15 +85,16 @@ class TypeNotes extends Component {
     //Edit note written by user
     editNote = (event) => {
         event.preventDefault();
-
-        document.getElementById("edit").setAttribute("open", true)
-        document.getElementById("edit").classList.remove("visuallyHidden")
-//Bind inputs
-        this.setState({
-            userInput: event.target.value,
-            noteId: event.target.id
-        })
-
+        //Make sure there is something to edit, error handling firebase problem
+        if(event.target.id !== ""){
+            document.getElementById("edit").setAttribute("open", true)
+            document.getElementById("edit").classList.remove("visuallyHidden")
+    //Bind inputs
+            this.setState({
+                userInput: event.target.value,
+                noteId: event.target.id
+            })
+        }
     }
 //Save note editted
     saveNote = (event) =>{
