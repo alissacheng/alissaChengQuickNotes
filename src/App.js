@@ -4,6 +4,7 @@ import firebase from "./firebase.js"
 import TypeNotes from "./TypeNotes"
 import ImageUpload from "./ImageUpload"
 import ButtonPanel from "./ButtonPanel"
+import Welcome from "./Welcome";
 
 class App extends Component {
 
@@ -64,21 +65,9 @@ class App extends Component {
                 toggleThemeProp={this.toggleTheme}
                 openDialogProp={this.openDialog}
               />
-              {/* Welcome message and instructions dialog */}
-              <dialog id="welcome" className="welcome" open>
-                <div className="titleBar">
-                  <button id="closeBtn" onClick={this.closeDialog} title="Close window">X</button>
-                </div>
-                <h1>Welcome to QuickNotes!</h1>
-                <p>QuickNotes is an application that allows you to save all your notes and photos in one convenient place.</p>
-                <p>Choose one of the three buttons in the top right panel to get started:</p>
-                <ul>
-                  <li>- Toggle the switch to change themes</li>
-                  <li>- Click the triangle (▲) to upload a photo</li>
-                  <li>- Click the plus sign (+) to create a new note</li>
-                  <li>- Click the "x" to delete an item and close the window</li>
-                </ul>
-              </dialog>
+              <Welcome
+                close={this.closeDialog}
+              />
               <TypeNotes/>
               <ImageUpload/>
             </main>
